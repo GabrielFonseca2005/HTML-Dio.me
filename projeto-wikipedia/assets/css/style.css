@@ -1,0 +1,156 @@
+/* Variables */
+:root {
+  --bg: #ffffff;
+  --text: #333333;
+  --muted: #666666;
+  --primary: #1a73e8;
+  --border: #cdcdcd;
+}
+
+[data-theme="dark"] {
+  --bg: #1e1e1e;
+  --text: #e0e0e0;
+  --muted: #a0a0a0;
+  --primary: #8ab4f8;
+  --border: #3c3c3c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  background: var(--primary);
+  color: #fff;
+  padding: 0.5rem;
+  z-index: 1000;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bar, .header {
+  background-color: var(--bg);
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.header-actions input[type="search"] {
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  width: 200px;
+}
+
+.header-actions button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-areas: "sidebar main anchors";
+  grid-template-columns: 200px 1fr 200px;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+.sidebar, .anchors {
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.main {
+  background-color: var(--bg);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3 {
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* Figure style */
+figure {
+  text-align: center;
+  margin: 1rem 0;
+}
+figcaption {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .content {
+    grid-template-areas:
+      "main"
+      "anchors"
+      "sidebar";
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-actions input[type="search"] {
+    display: none;
+  }
+}
